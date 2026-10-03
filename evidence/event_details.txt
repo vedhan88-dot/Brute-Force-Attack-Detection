@@ -1,0 +1,78 @@
+Brute Force Attack Detection
+Evidence Summary
+============================
+
+Project Type:
+SOC / Blue Team Portfolio Project
+
+Windows Endpoint:
+VEDHAN
+
+Target Account:
+SOC-Test
+
+Agent Name:
+vedhan
+
+Agent ID:
+002
+
+Windows Failed Logon Event:
+4625
+
+Failed Authentication Wazuh Rule:
+60122
+
+Failed Authentication Rule Level:
+5
+
+Failed Authentication Rule Description:
+Logon Failure - Unknown user or bad password
+
+Observed Source IP:
+192.168.56.1
+
+Windows Event Details:
+TargetUserName: SOC-Test
+TargetDomainName: -
+Status: 0xc000006d
+FailureReason: %%2313
+SubStatus: 0xc000006a
+LogonType: 3
+LogonProcessName: NtLmSsp
+AuthenticationPackageName: NTLM
+WorkstationName: VEDHAN
+
+Observed Failed Authentication Timestamps:
+October 3, 2026 @ 22:07:43.057
+October 3, 2026 @ 22:11:32.492
+October 3, 2026 @ 22:12:05.391
+October 3, 2026 @ 22:15:33.837
+October 3, 2026 @ 22:16:10.708
+
+Successful Authentication Correlation:
+Windows Event ID: 4624
+
+Successful Wazuh Detection:
+Rule ID: 92657
+Rule Level: 6
+User: SOC-TEST
+Authentication: NTLM
+
+Investigation Note:
+The successful authentication was treated as correlation evidence.
+It was not treated as proof of account compromise.
+
+Assessment:
+Repeated authentication failures were observed and investigated as
+possible brute-force activity.
+
+Limitation:
+The available evidence does not independently establish account compromise.
+
+Environment:
+Controlled personal virtual laboratory.
+
+Safety:
+No public systems, third-party accounts, or external infrastructure
+were targeted.
